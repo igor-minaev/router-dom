@@ -11,7 +11,8 @@ function App() {
                 <NavLink style={({isActive}) => ({color: isActive ? 'lime' : 'black'})}
                          to='/profile'>-Profile- </NavLink>
                 <NavLink to='/login'>-Login- </NavLink>
-                <NavLink to='/profile/settings'>-Settings- </NavLink>
+                <NavLink className={({isActive}) => isActive ? 'act' : 'def'}
+                         to='/profile/settings'>-Settings- </NavLink>
             </div>
             <Routes>
                 <Route path='/*' element={<div>Error 404</div>}/>
