@@ -7,6 +7,7 @@ function App() {
     return (
         <div className="App">
             <div>
+                {/*Можно использовать более облегченную компоненту Link, но она не поддерживает функцию для style и className*/}
                 <NavLink to='/'>-Main- </NavLink>
                 <NavLink style={({isActive}) => ({color: isActive ? 'lime' : 'black'})}
                          to='/profile'>-Profile- </NavLink>
