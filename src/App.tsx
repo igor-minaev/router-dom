@@ -3,13 +3,13 @@ import './App.css';
 import {NavLink, Outlet, Route, Routes, useParams} from "react-router-dom";
 
 
-
 function App() {
     return (
         <div className="App">
             <div>
                 <NavLink to='/'>-Main- </NavLink>
-                <NavLink style={{color:'lime'}} to='/profile'>-Profile- </NavLink>
+                <NavLink style={({isActive}) => ({color: isActive ? 'lime' : 'black'})}
+                         to='/profile'>-Profile- </NavLink>
                 <NavLink to='/login'>-Login- </NavLink>
                 <NavLink to='/profile/settings'>-Settings- </NavLink>
             </div>
