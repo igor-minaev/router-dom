@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {NavLink, Outlet, Route, Routes, useNavigate, useParams} from "react-router-dom";
 
 
 const Profile = () => {
     const navigate = useNavigate()
+    useEffect(() => {
+        if (true) navigate('/login')
+    })
     return (
         <div>
             profile
-            <button onClick={() => {navigate('/login')}}>logout</button>
+            <button onClick={() => {
+                navigate('/login')
+            }}>logout</button>
         </div>
     )
 }
