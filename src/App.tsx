@@ -1,7 +1,17 @@
 import React from 'react';
 import './App.css';
-import {NavLink, Outlet, Route, Routes, useParams} from "react-router-dom";
+import {NavLink, Outlet, Route, Routes, useNavigate, useParams} from "react-router-dom";
 
+
+const Profile = () => {
+    const navigate = useNavigate()
+    return (
+        <div>
+            profile
+            <button onClick={() => {navigate('/login')}}>logout</button>
+        </div>
+    )
+}
 
 function App() {
     return (
@@ -9,18 +19,16 @@ function App() {
             <div>
                 {/*Можно использовать более облегченную компоненту Link, но она не поддерживает функцию для style и className*/}
                 <NavLink to='/'>-Main- </NavLink>
-                <NavLink style={({isActive}) => ({color: isActive ? 'lime' : 'black'})}
-                         to='/profile'>-Profile- </NavLink>
+                <NavLink to='/profile'>-Profile- </NavLink>
                 <NavLink to='/login'>-Login- </NavLink>
-                <NavLink className={({isActive}) => isActive ? 'act' : 'def'}
-                         to='/profile/settings'>-Settings- </NavLink>
+                <NavLink to='/profile/settings'>-Settings- </NavLink>
             </div>
             <Routes>
                 <Route path='/*' element={<div>Error 404</div>}/>
                 <Route path='/' element={<div>Main</div>}/>
-                <Route path='/profile' element={<div>Profile</div>}/>
+                <Route path='/profile' element={<Profile/>}/>
                 <Route path='/profile/settings' element={<div>Settings</div>}/>
-                <Route path='/login/*' element={<div>Login</div>}/>
+                <Route path='/login/' element={<div>Login</div>}/>
             </Routes>
         </div>
     );
